@@ -13,4 +13,7 @@ module.exports = {
       res.status(404).send(error);
     }
   },
+  postEmpData: async (req, res) => {
+    res.status(201).send("employee added");
+  },
 };
