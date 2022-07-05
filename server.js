@@ -27,7 +27,7 @@ app.use("/api/emp", empRoute);
 
 //Checking DB connection here
 connection.once("open", function () {
-  console.log("MongoDB database connection established successfully");
+  console.log("MongoDB database connection established successfully...");
 });
 
 app.listen(8888, () => {
