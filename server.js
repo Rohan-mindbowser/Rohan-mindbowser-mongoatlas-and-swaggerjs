@@ -9,7 +9,7 @@ const swaggerUiExpress = require("swagger-ui-express");
 //Importing swagger configuration
 const swaggerDocs = require("./utils/swagger");
 
-//Swagger ui route
+//Swagger ui route(http://localhost:8888/api-docs/)
 app.use(
   "/api-docs",
   swaggerUiExpress.serve,
