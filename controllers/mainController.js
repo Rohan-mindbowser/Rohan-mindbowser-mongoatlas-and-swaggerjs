@@ -14,6 +14,8 @@ module.exports = {
     }
   },
   postEmpData: async (req, res) => {
-    res.status(201).send("employee added");
+    const employee = await empModel.create(req.body);
+    await employee.save();
+    res.status(201).send("Signup success..!!");
   },
 };
