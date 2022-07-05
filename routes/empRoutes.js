@@ -23,7 +23,7 @@ const mainController = require("../controllers/mainController");
  * /api/emp/postdata:
  *  post:
  *     tags:
- *     - Employee
+ *     - Add Employee
  *     summary: Add an employee
  *     requestBody:
  *      required: true
@@ -43,7 +43,7 @@ const mainController = require("../controllers/mainController");
  *                type: string
  *                default: sidd@gmail.com
  *              password:
- *                type: string      
+ *                type: string
  *                default: assdddd
  *     responses:
  *      201:
@@ -54,11 +54,55 @@ const mainController = require("../controllers/mainController");
  *        description: Not Found
  */
 
+
+
+/**
+ * @openapi
+ * '/api/emp/updatedata/{id}':
+ *  patch:
+ *     tags:
+ *     - Update employee
+ *     summary: Update employee data
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The unique id of the employee
+ *        required: true
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - id
+ *              - name
+ *            properties:
+ *              id:
+ *                type: string
+ *                default: 1
+ *              name:
+ *                type: string
+ *                default: Hulk
+ *     responses:
+ *      200:
+ *        description: Removed
+ *      400:
+ *        description: Bad request
+ *      404:
+ *        description: Not Found
+ */
+
+
+
 //Get data
 router.get("/getdata", mainController.getAllUserController);
 
 //Post data
 router.post("/postdata", mainController.postEmpData);
+
+//Update data
+router.patch("/updatedata/:id", mainController.updateEmpData);
 
 //Exporting routes
 module.exports = router;

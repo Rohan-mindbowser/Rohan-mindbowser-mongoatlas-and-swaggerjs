@@ -18,4 +18,16 @@ module.exports = {
     await employee.save();
     res.status(201).send("Signup success..!!");
   },
+  updateEmpData: async (req, res) => {
+    const emp = await empModel.findByIdAndUpdate(
+      { _id: req.params.id },
+      { $set: { name: req.body.name } }
+    );
+
+    if (emp) {
+      res.status(200).send("update success..!!");
+    } else {
+      res.status(403).send("Update failed..!!");
+    }
+  },
 };
